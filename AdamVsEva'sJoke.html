@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+        this.decreaseWeight = function () {
+            if (this.weight > 0) {
+                this.weight -=this.appleEmpty;
+            }
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setAppleEmpty = function (appleEmpty) {
+            this.appleEmpty = appleEmpty;
+        }
+        this.getAppleEmpty = function () {
+            return this.appleEmpty;
+        }
+    };
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.isMale = function () {
+            if (this.gender) {
+                return true;
+            }
+            return false;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.getGender = function () {
+            return this.gender;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.eatApple = function (Apple) {
+            if(Apple.getWeight() > 0) {
+                this.weight += Apple.getAppleEmpty();
+            }
+            if(Apple.getWeight() === 0 ){
+                console.log("Co moi mot qua doi can' 3 mieng ha???");
+            }
+            Apple.decreaseWeight();
+        };
+    }
+    let apple1 = new Apple(10);
+    apple1.setAppleEmpty(5);
+    console.log(apple1.getWeight());
+    let person1 = new Human("Adam", true, 50);
+    let person2 = new Human("Eva", false, 40);
+    console.log("Before :");
+    console.log(person1.getWeight());
+    console.log(person2.getWeight());
+    console.log(apple1.getWeight());
+   person1.eatApple(apple1);
+   person2.eatApple(apple1);
+    console.log(apple1.getWeight());
+    console.log("After :");
+    console.log(person1.getWeight());
+    console.log(person2.getWeight());
+    console.log(apple1.getWeight());
+    person1.eatApple(apple1);
+
+
+</script>
+</body>
+</html>

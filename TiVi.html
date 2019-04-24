@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    function Remote(chanel,volume,status) {
+        this.status =status;
+        this.chanel = chanel;
+        this.volume = volume;
+        this.getChanel = function () {
+            return this.chanel;
+        };
+        this.getVolume = function () {
+            return this.volume;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.turnOn = function () {
+            this.status = true;
+        }
+    };
+    function TiVi(chanel,volume,status) {
+        this.status = status;
+        this.chanel = chanel;
+        this.volume = volume;
+        this.getChanel = function () {
+            return this.chanel;
+        };
+        this.getVolume = function () {
+            return this.volume;
+        };
+        this.connect = function (Remote) {
+            this.chanel = Remote.chanel;
+            this.volume = Remote.volume;
+            this.status = Remote.status;
+        };
+        this.turnOff = function () {
+            this.status = false;
+        };
+        this.turnOn = function () {
+            this.status = true;
+        }
+
+    }
+    let remote = new Remote(3,10);
+    let tiVi = new TiVi();
+    tiVi.connect(remote);
+    console.log("Before :");
+    console.log(tiVi.getChanel());
+    console.log(tiVi.getVolume());
+    let remote1 = new Remote(5,12);
+    tiVi.connect(remote1);
+    console.log("After :");
+    console.log(tiVi.getChanel());
+    console.log(tiVi.getVolume());
+    remote1.turnOff();
+
+</script>
+</body>
+</html>

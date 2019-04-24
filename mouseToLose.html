@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    function Rat(name,weight,speed,status,minSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = status;
+        this.dieRat =[];
+        this.minSpeed = minSpeed;
+         arrRat = [];
+        this.getName = function () {
+            return this.name;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.getDieRat = function () {
+            return this.dieRat;
+        };
+        this.getRat = function () {
+            
+        };
+        this.isEated = function (Rat) {
+            Rat.status = true;
+            Rat.dieRat.push(this.Rat);
+        };
+        this.getLowestRat = function (arrRat) {
+            if(arrRat.length > 0){
+                this.minSpeed = arrRat[0].speed;
+                let index = 0;
+                for(let i = 0;i < arrRat.length ;i++){
+                    if(arrRat[i].speed < this.minSpeed){
+                        this.minSpeed = arrRat[i].speed;
+                        index = i;
+                    }
+                }
+                let c = arrRat[0];
+                arrRat[0] = arrRat[index];
+                arrRat[index] = c;
+            }
+            return this.minSpeed;
+        }
+        function Cat(name,weight,speed) {
+            this.namme = name;
+            this.weigth = weight;
+            this.speed = speed;
+            this.getName = function () {
+                return this.name;
+            };
+            this.getWeight = function () {
+                return this.weight;
+            };
+            this.getSpeed = function () {
+                return this.speed;
+            };
+            this.canCaughtRat = function () {
+                this.speed > Rat.minSpeed;
+            }
+            this.eat = function (Rat) {
+                Rat.status = false;
+                this.speed = 0;
+            }
+        }
+    }
+</script>
+</body>
+</html>
